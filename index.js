@@ -46,7 +46,8 @@ function showQuestions() {
     }
 
     let options = [...questions[increamentQuestion].incorrectAnswers, questions[increamentQuestion].correctAnswer]
-    options.sort();
+    console.log(questions[increamentQuestion].correctAnswer);
+    options.sort(() => Math.random() - 0.5);
 
     mcqQuestion.innerHTML = questions[increamentQuestion].question.text;
     btn.innerHTML = "Next"
@@ -56,6 +57,7 @@ function showQuestions() {
     options.map((element) => {
         input.innerHTML += `<div onclick="stylingAnswer(this)" class="option-div"> <input type="radio"  name="option" value="${element}" id="${element}" onchange="btn.style.display='block'">
         <label for="${element}">${element}</label> </div>`
+        console.log(element)
     })
 
     increamentQuestion++
